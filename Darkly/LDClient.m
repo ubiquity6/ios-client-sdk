@@ -89,8 +89,9 @@
         [secondaryEnvironment start];
         self.secondaryEnvironments[secondaryKey] = secondaryEnvironment;
     }
-    [self setOnline:YES];
-    
+    if ([self.ldConfig startOnline]) {
+        [self setOnline:YES];
+    }
     return YES;
 }
 

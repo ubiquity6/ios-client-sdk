@@ -118,6 +118,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL debugEnabled;
 
 /**
+ Flag that enables the client to start online at init time.
+ */
+@property (nonatomic) BOOL startOnline;
+
+/**
  Initializes an LDConfig object with the provided mobile key.
  @param mobileKey The mobileKey retrieved from the LaunchDarkly account settings.
  @return An instance of LDConfig object.

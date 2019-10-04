@@ -22,6 +22,7 @@
 
     self.mobileKey = mobileKey;
     self.streaming = YES;
+    self.startOnline = YES;
     self.capacity = [NSNumber numberWithInt:kCapacity];
     self.connectionTimeout = [NSNumber numberWithInt:kConnectionTimeout];
     self.flushInterval = [NSNumber numberWithInt:kDefaultFlushInterval];
@@ -159,6 +160,11 @@
     DEBUG_LOG(@"Set LDConfig debug enabled: %d", debugEnabled);
 }
 
+- (void)setStartOnline:(BOOL)startOnline {
+    _startOnline = startOnline;
+    DEBUG_LOG(@"Set LDConfig startOnline: %d", startOnline);
+}
+
 - (void)setInlineUserInEvents:(BOOL)inlineUserInEvents {
     _inlineUserInEvents = inlineUserInEvents;
     DEBUG_LOG(@"Set LDConfig inlineUserInEvents: %d", inlineUserInEvents);
@@ -186,6 +192,7 @@
     description = [NSString stringWithFormat:@"%@ useReport:%@", description, [NSString stringWithBool:self.useReport]];
     description = [NSString stringWithFormat:@"%@ inlineUserInEvents:%@", description, [NSString stringWithBool:self.inlineUserInEvents]];
     description = [NSString stringWithFormat:@"%@ debugEnabled:%@", description, [NSString stringWithBool:self.debugEnabled]];
+    description = [NSString stringWithFormat:@"%@ startOnline:%@", description, [NSString stringWithBool:self.startOnline]];
     description = [NSString stringWithFormat:@"%@>", description];
     return description;
 }
